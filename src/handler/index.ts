@@ -330,6 +330,7 @@ export default class Handler {
   }
 
   public async gotoDefinition(openCommand?: string): Promise<boolean> {
+    logger.debug("gotoDefinition '$openCommand'");
     let { document, position } = await workspace.getCurrentState()
     let definition = await languages.getDefinition(document, position)
     if (isEmpty(definition)) {
